@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -14,6 +14,61 @@
     <description>native-starter</description>
 
     <properties>
+        <jna.version>4.2.2</jna.version>
+        <javacpp.version>1.3.3</javacpp.version>
+        <javacv.version>1.3.3</javacv.version>
+
+        <native-maven-plugin.version>1.0-alpha-8</native-maven-plugin.version>
+        <nar-maven-plugin.version>3.5.2</nar-maven-plugin.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna-platform</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bytedeco</groupId>
+                <artifactId>javacpp</artifactId>
+                <version>${javacpp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bytedeco</groupId>
+                <artifactId>javacv</artifactId>
+                <version>${javacv.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bytedeco</groupId>
+                <artifactId>javacv-platform</artifactId>
+                <version>${javacv.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>native-maven-plugin</artifactId>
+                    <version>${native-maven-plugin.version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.maven-nar</groupId>
+                    <artifactId>nar-maven-plugin</artifactId>
+                    <version>${nar-maven-plugin.version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>

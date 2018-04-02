@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -18,6 +18,7 @@
         <persistence-api.version>1.0.2</persistence-api.version> <!--Persistence Api (JPA)-->
         <annotation-api.version>1.2</annotation-api.version> <!-- Common Annotations for the JavaTM -->
         <javax-validation.version>1.1.0.Final</javax-validation.version> <!-- Bean Validation 1.1(JSR-349) -->
+        <javax.ws.rs-api.version>2.0.1</javax.ws.rs-api.version> <!--Javax WS RS API JSR311-->
         <javax-mail.version>1.6.0</javax-mail.version> <!--sun-mail-->
 
         <!-- Logger -->
@@ -29,6 +30,9 @@
         <jodd.version>3.7.1</jodd.version>
         <poi.version>3.17</poi.version>
         <okhttp3.version>3.9.1</okhttp3.version>
+        <retrofit2.version>2.3.0</retrofit2.version>
+        <rxjava.version>1.3.4</rxjava.version>
+        <rxjava2.version>2.1.8</rxjava2.version>
         <disruptor.version>3.3.7</disruptor.version>
         <jline.version>2.14.5</jline.version>
         <jsoup.version>1.11.2</jsoup.version>
@@ -68,6 +72,12 @@
         <mybatis-generator.version>1.3.6</mybatis-generator.version>
         <mapper.version>4.0.0</mapper.version>
         <pagehelper.version>5.1.2</pagehelper.version>
+        <!-- springframework -->
+        <spring.version>4.3.13.RELEASE</spring.version>
+        <aspectj.version>1.8.13</aspectj.version>
+        <zookeeper.version>3.4.11</zookeeper.version>
+        <zxing.version>3.3.0</zxing.version>
+        <thumbnailator.version>0.4.8</thumbnailator.version>
         <!-- Bytecode Libraries -->
         <cglib.version>3.1</cglib.version>
         <asm.version>5.0.4</asm.version>
@@ -75,6 +85,7 @@
         <!-- Template -->
         <freemarker.version>2.3.23</freemarker.version>
         <velocity.version>2.0</velocity.version>
+        <velocity-tools.version>2.0</velocity-tools.version>
         <!-- ehcache -->
         <ehcache-core.version>2.6.11</ehcache-core.version>
         <ehcache.version>2.10.4</ehcache.version>
@@ -117,6 +128,12 @@
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
                 <version>${javax-validation.version}</version>
+            </dependency>
+            <!--Javax WS RS API JSR311-->
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>${javax.ws.rs-api.version}</version>
             </dependency>
             <!-- mail -->
             <dependency>
@@ -163,6 +180,51 @@
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>logging-interceptor</artifactId>
+                <version>${okhttp3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp-urlconnection</artifactId>
+                <version>${okhttp3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>retrofit</artifactId>
+                <version>${retrofit2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-gson</artifactId>
+                <version>${retrofit2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-jackson</artifactId>
+                <version>${retrofit2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>adapter-rxjava</artifactId>
+                <version>${retrofit2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>adapter-rxjava2</artifactId>
+                <version>${retrofit2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.reactivex</groupId>
+                <artifactId>rxjava</artifactId>
+                <version>${rxjava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.reactivex.rxjava2</groupId>
+                <artifactId>rxjava</artifactId>
+                <version>${rxjava2.version}</version>
             </dependency>
             <!--disruptor-->
             <dependency>
@@ -297,6 +359,26 @@
                 <artifactId>pagehelper</artifactId>
                 <version>${pagehelper.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.coobird</groupId>
+                <artifactId>thumbnailator</artifactId>
+                <version>${thumbnailator.version}</version>
+            </dependency>
             <!-- cglib -->
             <dependency>
                 <groupId>cglib</groupId>
@@ -313,6 +395,17 @@
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity-engine-core</artifactId>
                 <version>${velocity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-tools</artifactId>
+                <version>${velocity-tools.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <!-- ehcache-core -->
             <dependency>
