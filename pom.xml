@@ -17,6 +17,8 @@
     <description>maven-starter</description>
 
     <modules>
+        <module>starter-dependencies</module>
+
         <module>java-starter</module>
         <module>javaweb-starter</module>
         <module>native-starter</module>
@@ -24,9 +26,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.6</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <jdk.version>1.6</jdk.version>
+        <maven.compiler.source>${jdk.version}</maven.compiler.source>
+        <maven.compiler.target>${jdk.version}</maven.compiler.target>
         <maven.version>3.1.1</maven.version>
 
         <!-- Dependency versions -->
