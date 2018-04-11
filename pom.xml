@@ -10,7 +10,7 @@
         <version>1.5.9.RELEASE</version>
     </parent>
 
-    <groupId>longshu.maven</groupId>
+    <groupId>longshu.maven.starter</groupId>
     <artifactId>maven-starter</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -52,6 +52,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -62,13 +63,11 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
                 <version>${testng.version}</version>
-                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.easymock</groupId>
@@ -79,7 +78,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-                <scope>provided</scope>
             </dependency>
             <!--JSR305-->
             <dependency>

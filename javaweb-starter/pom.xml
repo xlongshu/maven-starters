@@ -4,21 +4,32 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>longshu.maven</groupId>
-        <artifactId>maven-starter</artifactId>
+        <groupId>longshu.maven.starter</groupId>
+        <artifactId>starter-dependencies</artifactId>
         <version>1.0.0</version>
+        <relativePath>../starter-dependencies</relativePath>
     </parent>
 
     <artifactId>javaweb-starter</artifactId>
     <packaging>pom</packaging>
 
     <properties>
-        <starter-dependencies.version>${project.version}</starter-dependencies.version>
-
         <jetty.version>9.4.8.v20171121</jetty.version>
+        <webAppSourceDir>${basedir}/src/main/webapp</webAppSourceDir>
     </properties>
 
     <dependencies>
+            <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -37,21 +48,18 @@
         </dependency>
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>longshu.maven</groupId>
-                <artifactId>starter-dependencies</artifactId>
-                <version>${starter-dependencies.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <compilerArguments>
+                            <extdirs>${webAppSourceDir}/WEB-INF/lib</extdirs>
+                        </compilerArguments>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
