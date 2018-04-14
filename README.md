@@ -1,2 +1,2 @@
-# maven-starter
+# maven-starters
 maven project starter

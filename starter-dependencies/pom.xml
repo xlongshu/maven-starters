@@ -5,8 +5,8 @@
 
     <parent>
         <groupId>longshu.maven.starter</groupId>
-        <artifactId>maven-starter</artifactId>
-        <version>1.0.0</version>
+        <artifactId>maven-starters</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>starter-dependencies</artifactId>
@@ -20,6 +20,8 @@
         <jsp-api.version>2.2.1</jsp-api.version>
         <el-api.version>3.0.0</el-api.version>
         <websocket-api.version>1.1</websocket-api.version>
+        <tomcat.version>8.5.29</tomcat.version>
+        <jetty.version>9.4.8.v20171121</jetty.version>
         <!-- Java API -->
         <persistence-api.version>1.0.2</persistence-api.version> <!--Persistence Api (JPA)-->
         <annotation-api.version>1.2</annotation-api.version> <!-- Common Annotations for the JavaTM -->
@@ -32,7 +34,7 @@
         <logback.version>1.2.3</logback.version>
         <!-- commons -->
         <guava.version>20.0</guava.version>
-        <hutool.version>4.0.8</hutool.version>
+        <hutool.version>4.0.9</hutool.version>
         <jodd.version>3.7.1</jodd.version>
         <poi.version>3.17</poi.version>
         <okhttp3.version>3.9.1</okhttp3.version>
@@ -65,7 +67,7 @@
         <msgpack.version>1.5.6</msgpack.version>
         <msgpack-core.version>0.8.14</msgpack-core.version>
         <!-- JDBC -->
-        <druid.version>1.1.6</druid.version>
+        <druid.version>1.1.7</druid.version>
         <c3p0.version>0.9.5.2</c3p0.version>
         <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
         <mysql.version>5.1.40</mysql.version>
@@ -76,20 +78,15 @@
         <mybatis.version>3.4.5</mybatis.version>
         <mybatis-spring.version>1.3.1</mybatis-spring.version>
         <mybatis-generator.version>1.3.6</mybatis-generator.version>
-        <mapper.version>4.0.0</mapper.version>
-        <pagehelper.version>5.1.2</pagehelper.version>
-        <!-- springframework -->
-        <spring.version>4.3.13.RELEASE</spring.version>
-        <aspectj.version>1.8.13</aspectj.version>
-        <zookeeper.version>3.4.11</zookeeper.version>
-        <zxing.version>3.3.0</zxing.version>
-        <thumbnailator.version>0.4.8</thumbnailator.version>
+        <mapper.version>4.0.1</mapper.version>
+        <pagehelper.version>5.1.3</pagehelper.version>
         <!-- Bytecode Libraries -->
-        <cglib.version>3.1</cglib.version>
         <asm.version>5.0.4</asm.version>
+        <cglib.version>3.1</cglib.version>
+        <aspectj.version>1.8.13</aspectj.version>
         <javassist.version>3.22.0-GA</javassist.version>
         <!-- Template -->
-        <freemarker.version>2.3.23</freemarker.version>
+        <freemarker.version>2.3.28</freemarker.version>
         <velocity.version>2.0</velocity.version>
         <velocity-tools.version>2.0</velocity-tools.version>
         <!-- ehcache -->
@@ -103,6 +100,9 @@
         <dozermapper.version>6.1.0</dozermapper.version>
         <xstream.version>1.4.9</xstream.version>
         <xercesImpl.version>2.11.0</xercesImpl.version>
+        <zxing.version>3.3.0</zxing.version>
+        <zookeeper.version>3.4.11</zookeeper.version>
+        <thumbnailator.version>0.4.8</thumbnailator.version>
     </properties>
 
     <dependencyManagement>
@@ -182,7 +182,6 @@
                 <groupId>javax.mail</groupId>
                 <artifactId>javax.mail-api</artifactId>
                 <version>${javax-mail.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.sun.mail</groupId>
@@ -370,6 +369,11 @@
                 <version>${druid.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.mchange</groupId>
                 <artifactId>c3p0</artifactId>
                 <version>${c3p0.version}</version>
@@ -388,8 +392,7 @@
             <dependency>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-core</artifactId>
-                <version>${mybatis-generator.version</version>
-                <optional>true</optional>
+                <version>${mybatis-generator.version}</version>
             </dependency>
             <dependency>
                 <groupId>tk.mybatis</groupId>
@@ -400,26 +403,6 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
                 <version>${pagehelper.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.zookeeper</groupId>
-                <artifactId>zookeeper</artifactId>
-                <version>${zookeeper.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.zxing</groupId>
-                <artifactId>core</artifactId>
-                <version>${zxing.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.zxing</groupId>
-                <artifactId>javase</artifactId>
-                <version>${zxing.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.coobird</groupId>
-                <artifactId>thumbnailator</artifactId>
-                <version>${thumbnailator.version}</version>
             </dependency>
             <!-- cglib -->
             <dependency>
@@ -458,7 +441,48 @@
             <!-- shiro -->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-root</artifactId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>${shiro.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-quartz</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-guice</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-aspectj</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-all</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
             <!-- quartz -->
@@ -491,10 +515,8 @@
             </dependency>
             <dependency>
                 <groupId>com.github.dozermapper</groupId>
-                <artifactId>dozer-bom-dependencies</artifactId>
+                <artifactId>dozer-core</artifactId>
                 <version>${dozermapper.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
             </dependency>
             <!--XStream-->
             <dependency>
@@ -506,6 +528,26 @@
                 <groupId>xerces</groupId>
                 <artifactId>xercesImpl</artifactId>
                 <version>${xercesImpl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.coobird</groupId>
+                <artifactId>thumbnailator</artifactId>
+                <version>${thumbnailator.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
