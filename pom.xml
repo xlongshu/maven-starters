@@ -14,7 +14,31 @@
     <artifactId>maven-starters</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <description>maven-starter</description>
+    <description>maven-starters</description>
+
+    <developers>
+        <developer>
+            <name>longshu</name>
+            <email>xlongshu@163.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>git@github.com:Xlongshu/maven-starters.git</url>
+        <connection>scm:git@github.com:Xlongshu/maven-starters.git</connection>
+    </scm>
+
+    <issueManagement>
+        <system>Github Issue</system>
+        <url>https://github.com/Xlongshu/maven-starters/issues</url>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
 
     <modules>
         <module>starter-dependencies</module>
@@ -162,9 +186,6 @@
             <id>jcenter</id>
             <name>jcenter Repository</name>
             <url>http://jcenter.bintray.com/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
         </repository>
     </repositories>
 
