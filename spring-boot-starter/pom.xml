@@ -6,12 +6,18 @@
     <parent>
         <groupId>com.github.xlongshu.maven</groupId>
         <artifactId>starter-dependencies</artifactId>
-        <version>1.0</version>
+        <version>1.0.1</version>
         <relativePath>../starter-dependencies</relativePath>
     </parent>
 
     <artifactId>spring-boot-starter</artifactId>
     <packaging>pom</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <executable>false</executable>
+        <addResources>false</addResources>
+    </properties>
 
     <dependencies>
 		<dependency>
@@ -45,13 +51,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>springloaded</artifactId>
-                        <version>${spring-loaded.version}</version>
-                    </dependency>
-                </dependencies>
+                <configuration>
+                    <addResources>${addResources}</addResources>
+                    <classifier>exec</classifier>
+                    <executable>${executable}</executable>
+                </configuration>
             </plugin>
         </plugins>
     </build>
