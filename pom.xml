@@ -225,7 +225,7 @@
 
     <profiles>
         <profile>
-            <id>release</id>
+            <id>oss-release</id>
             <build>
                 <plugins>
                     <plugin>
