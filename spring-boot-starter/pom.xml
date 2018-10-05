@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.xlongshu.maven</groupId>
         <artifactId>starter-dependencies</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <relativePath>../starter-dependencies</relativePath>
     </parent>
 
@@ -20,15 +20,15 @@
     </properties>
 
     <dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>javax.inject</groupId>
