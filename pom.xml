@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.14.RELEASE</version>
+        <version>1.5.16.RELEASE</version>
     </parent>
 
     <groupId>com.github.xlongshu.maven</groupId>
@@ -59,16 +59,16 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <!-- delimiter that doesn't clash with Spring ${} placeholders -->
         <resource.delimiter>@</resource.delimiter>
-        <maven.version>3.1.1</maven.version>
+        <maven.version>3.3.3</maven.version>
 
         <!-- Dependency versions -->
         <spring.version>4.3.18.RELEASE</spring.version>
-        <spring-boot.version>1.5.14.RELEASE</spring-boot.version>
+        <spring-boot.version>1.5.16.RELEASE</spring-boot.version>
         <junit.version>4.12</junit.version>
         <testng.version>6.10</testng.version>
         <mockito.version>1.10.19</mockito.version>
         <easymock.version>3.4</easymock.version>
-        <lombok.version>1.16.22</lombok.version>
+        <lombok.version>1.18.2</lombok.version>
         <jsr305.version>3.0.2</jsr305.version>
 
         <!-- Plugin versions -->
